@@ -179,7 +179,7 @@ RUN if [ "$MODEL_TYPE" = "z-image-turbo" ]; then \
       wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/model_patches/Z-Image-Turbo-Fun-Controlnet-Union.safetensors https://huggingface.co/alibaba-pai/Z-Image-Turbo-Fun-Controlnet-Union/resolve/main/Z-Image-Turbo-Fun-Controlnet-Union.safetensors; \
     fi
 
-RUN if [ "$MODEL_TYPE" = "qwen-image-2.1" ]; then       Q=https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main &&       wget -q -O models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors $Q/diffusion_models/qwen_image_2.1_int8_convrot.safetensors &&       wget -q -O models/text_encoders/qwen3vl_8b_bf16.safetensors $Q/text_encoders/qwen3vl_8b_bf16.safetensors &&       wget -q -O models/vae/qwen_image_2.1_vae_bf16.safetensors $Q/vae/qwen_image_2.1_vae_bf16.safetensors;     fi
+RUN if [ "$MODEL_TYPE" = "qwen-image-2.1" ]; then       Q=https://huggingface.co/Comfy-Org/Qwen-Image-2.1/resolve/main &&       wget -q -O models/diffusion_models/qwen_image_2.1_int8_convrot.safetensors $Q/diffusion_models/qwen_image_2.1_int8_convrot.safetensors &&       wget -q -O models/text_encoders/qwen3vl_8b_int8_convrot.safetensors $Q/text_encoders/qwen3vl_8b_int8_convrot.safetensors &&       wget -q -O models/vae/qwen_image_2.1_vae_bf16.safetensors $Q/vae/qwen_image_2.1_vae_bf16.safetensors;     fi
 
 # Stage 3: Final image
 FROM base AS final
